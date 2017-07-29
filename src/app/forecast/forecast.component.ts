@@ -10,11 +10,13 @@ import { ForecastService } from '../services/forecast.service';
 export class ForecastComponent {
   private weather: object; // From API
   private cityName: string;
+  private selectedDays: null;
+  private days = [1, 3, 5, 7];
 
   constructor(private forecastService: ForecastService, private location: Location) { }
 
   public getWeather() {
-    this.forecastService.get(this.cityName).subscribe(val => this.weather = val);
+    this.forecastService.get(this.cityName, this.selectedDays).subscribe(val => this.weather = val);
   }
 
   goBack(): void {

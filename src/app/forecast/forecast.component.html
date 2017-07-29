@@ -1,8 +1,12 @@
-<div>Get Forecast:</div>
 <div>
+  <label>City:</label>
   <input [(ngModel)]="cityName" placeholder="name" /><br/>
-  <button (click)="goBack()">Back</button>
+  <label>Days:</label>
+  <select [(ngModel)]="selectedDays">  
+  <option *ngFor="let c of days" [ngValue]="c">{{c}}</option>
+</select>  
   <button (click)="getWeather()">Get Forecast</button>
+  <button (click)="goBack()">Back</button>
 </div>
 
 <div *ngIf="weather">
