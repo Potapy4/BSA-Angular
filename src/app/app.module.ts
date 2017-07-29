@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 import { AppComponent } from './app.component';
 import { CityListComponent } from './city-list/city-list.component';
 import { CityDetailsComponent } from './city-details/city-details.component';
@@ -29,7 +31,8 @@ import { ForecastComponent } from './forecast/forecast.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [CityService, HistoryService, ForecastService],
   bootstrap: [AppComponent]

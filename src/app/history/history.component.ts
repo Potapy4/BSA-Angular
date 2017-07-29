@@ -9,6 +9,7 @@ import { HistoryService } from '../services/history.service';
 })
 export class HistoryComponent implements OnInit {
   private historyList: History[];
+  private p: number = 1;
 
   constructor(private historyService: HistoryService) { }
 

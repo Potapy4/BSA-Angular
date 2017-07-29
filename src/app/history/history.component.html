@@ -1,4 +1,4 @@
-<table class="center">
+<table *ngIf="historyList" class="center">
   <tr>
     <th>City</th>
     <th>Log Time</th>
@@ -9,7 +9,7 @@
     <th>Humidity</th>
     <th>Summary</th>
   </tr>
-  <tr *ngFor="let hs of historyList">
+  <tr *ngFor="let hs of historyList | paginate: { itemsPerPage: 10, currentPage: p }">
     <td>{{hs.city}}</td>
     <td>{{hs.logTime | date:'MM/dd/yyyy hh:mm'}}</td>
     <td>{{hs.forecastDate | date:'MM/dd/yyyy'}}</td>
@@ -20,3 +20,4 @@
     <td>{{hs.summary}}</td>
   </tr>
 </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
