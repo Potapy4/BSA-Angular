@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
+
 import { ForecastService } from '../services/forecast.service';
+import { ForecastData } from '../classes/forecast/forecast-data';
 
 @Component({
   selector: 'app-forecast',
@@ -8,7 +10,7 @@ import { ForecastService } from '../services/forecast.service';
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent {
-  private weather: object; // From API
+  private weather: ForecastData;
   private cityName: string;
   private selectedDays: null;
   private days = [1, 3, 5, 7];
