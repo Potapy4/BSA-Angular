@@ -12,6 +12,7 @@ import { CityService } from '../services/city.service';
 })
 export class CityListComponent implements OnInit {
   private cities: City[];
+  private cityName: string;
   private selectedCity: City;
 
   constructor(private cityService: CityService, private router: Router, private location: Location) { }
@@ -32,6 +33,10 @@ export class CityListComponent implements OnInit {
     this.location.back();
   }
 
+  addCity(): void {
+    this.cityService.create(this.cityName);
+  }
+  
   editCity(): void {
     this.router.navigate(['/edit', this.selectedCity.id]);
   }

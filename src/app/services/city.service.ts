@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 // rxjs
 import { Observable } from "rxjs/Observable";
@@ -10,11 +10,15 @@ import { City } from '../classes/city';
 @Injectable()
 export class CityService {
 
+
   private readonly URL = "http://localhost:58066/api/cities"
   constructor(private httpClient: HttpClient) { }
 
-  public create(city: City): Observable<City> {
-    return this.httpClient.post<City>(this.URL, city);
+  public create(cityName: string): void {    
+    this.httpClient.post(this.URL, `=${cityName}`,
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+      }).subscribe();
   }
 
   public delete(id: number): Observable<City> {
