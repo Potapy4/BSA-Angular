@@ -1,0 +1,22 @@
+<table class="center">
+  <tr>
+    <th>City</th>
+    <th>Log Time</th>
+    <th>Forecast Date</th>
+    <th>Temp Min</th>
+    <th>Temp Max</th>
+    <th>Wind</th>
+    <th>Humidity</th>
+    <th>Summary</th>
+  </tr>
+  <tr *ngFor="let hs of historyList">
+    <td>{{hs.city}}</td>
+    <td>{{hs.logTime | date:'MM/dd/yyyy hh:mm'}}</td>
+    <td>{{hs.forecastDate | date:'MM/dd/yyyy'}}</td>
+    <td>{{hs.tempMin}}</td>
+    <td>{{hs.tempMax}}</td>
+    <td>{{hs.wind}}</td>
+    <td>{{hs.humidity}}</td>
+    <td>{{hs.summary}}</td>
+  </tr>
+</table>

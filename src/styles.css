@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+ table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+  input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc; 
+  cursor: auto;
+}

@@ -1,0 +1,14 @@
+<h2>Favorite Cities:</h2>
+<ul class="cities">
+    <li *ngFor="let city of cities" [class.selected]="city === selectedCity" (click)="onSelect(city)">
+        <span class="badge">{{city.id}}</span> {{city.name}}
+    </li>
+</ul>
+<div *ngIf="selectedCity">
+    <h2>
+        {{selectedCity.name | uppercase}}
+    </h2>
+    <button (click)="editCity()">Edit City</button> | <button (click)="deleteCity()">Delete City</button>
+</div>
+<br>
+<button (click)="goBack()">Back</button>

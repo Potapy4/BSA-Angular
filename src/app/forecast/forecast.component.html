@@ -1,0 +1,26 @@
+<div>Get Forecast:</div>
+<div>
+  <input [(ngModel)]="cityName" placeholder="name" /><br/>
+  <button (click)="goBack()">Back</button>
+  <button (click)="getWeather()">Get Forecast</button>
+</div>
+
+<div *ngIf="weather">
+  <table class="center">
+    <h3>Forecast for {{weather.city.name}}</h3>
+    <tr>
+      <th>Forecast Date</th>
+      <th>Temperature</th>
+      <th>Summary</th>
+      <th>Wind</th>
+      <th>Humidity</th>
+    </tr>
+    <tr *ngFor="let wt of weather.list">
+      <td>{{wt.dt * 1000 | date:'MM/dd/yyyy'}}</td>
+      <td>{{wt.temp.day}}&deg;</td>
+      <td>{{wt.weather[0].description}}</td>
+      <td>{{wt.speed}} m/s</td>
+      <td>{{wt.humidity}}%</td>
+    </tr>
+  </table>
+</div>
