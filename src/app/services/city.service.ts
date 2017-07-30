@@ -14,11 +14,11 @@ export class CityService {
   private readonly URL = "http://localhost:58066/api/cities"
   constructor(private httpClient: HttpClient) { }
 
-  public create(cityName: string): void {    
-    this.httpClient.post(this.URL, `=${cityName}`,
+  public create(cityName: string): Observable<City> {    
+    return this.httpClient.post<City>(this.URL, `=${cityName}`,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
-      }).subscribe();
+      });
   }
 
   public delete(id: number): Observable<City> {

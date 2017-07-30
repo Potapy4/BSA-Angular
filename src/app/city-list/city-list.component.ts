@@ -34,22 +34,23 @@ export class CityListComponent implements OnInit {
   }
 
   addCity(): void {
-    this.cityService.create(this.cityName);
-    this.getCities();
+    this.cityService.create(this.cityName).subscribe(x => this.getCities());
   }
 
   editCity(): void {
     this.router.navigate(['/edit', this.selectedCity.id]);
   }
 
-  deleteCity(): void {
+  private removeSelectedCity() {
     let index = this.cities.indexOf(this.selectedCity, 0);
     if (index > -1) {
       this.cities.splice(index, 1);
       this.selectedCity = null;
     }
+  }
 
-    this.cityService.delete(this.selectedCity.id).subscribe();
+  deleteCity(): void {
+    this.cityService.delete(this.selectedCity.id).subscribe(x => this.removeSelectedCity());
   }
 
 }
