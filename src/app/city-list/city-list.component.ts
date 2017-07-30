@@ -35,15 +35,21 @@ export class CityListComponent implements OnInit {
 
   addCity(): void {
     this.cityService.create(this.cityName);
+    this.getCities();
   }
-  
+
   editCity(): void {
     this.router.navigate(['/edit', this.selectedCity.id]);
   }
 
   deleteCity(): void {
-    // Need refresh page
-    this.cityService.delete(this.selectedCity.id).subscribe();   
+    let index = this.cities.indexOf(this.selectedCity, 0);
+    if (index > -1) {
+      this.cities.splice(index, 1);
+      this.selectedCity = null;
+    }
+
+    this.cityService.delete(this.selectedCity.id).subscribe();
   }
 
 }

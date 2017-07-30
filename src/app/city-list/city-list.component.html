@@ -7,6 +7,7 @@
 <hr>
 <ul class="cities">
     <li *ngFor="let city of cities" [class.selected]="city === selectedCity" (click)="onSelect(city)">
+        <input hidden [(ngModel)]=city.id>
         <span class="badge">{{city.id}}</span> {{city.name}}
     </li>
 </ul>
